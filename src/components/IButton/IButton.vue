@@ -1,5 +1,27 @@
+<script setup>
+import { computed } from 'vue'
+const props = defineProps({
+  variant: {
+    default: 'primary',
+    type: String,
+    validator: (value) => {
+      return ['primary', 'gradient', 'outlined'].includes(value)
+    },
+  },
+})
+const bgStyles = computed(() => {
+  return props.variant === 'gradient'
+    ? 'bg-gradient-to-r from-[#FFA279] to-[#F3743D]'
+    : 'bg-[#FFA279]'
+})
+</script>
+
 <template>
-  <button class="bg-[#FFA279] rounded-xl py-3 px-10 text-white font-bold -tracking-wider">
-    Почати роботу
+  <button
+    class="rounded-xl py-3 px-10 text-white font-bold -tracking-wider"
+    :class="bgStyles"
+    variant="gradient"
+  >
+    <slot></slot>
   </button>
 </template>
