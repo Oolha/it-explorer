@@ -11,7 +11,7 @@ const changeButtonVariant = () => {
 </script>
 
 <template>
-  <div class="px-6 mb-4">
+  <div class="px-6">
     <div class="text-gray mb-4">Додані маркери</div>
 
     <slot name="list">
